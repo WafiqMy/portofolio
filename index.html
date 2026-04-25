@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Wafiq</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="navbar dark-section">
+      <div class="nav-top">
+        <div class="nav-left">
+          <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="logo">Wafiq</div>
+        </div>
+        <button class="dark-toggle" id="darkToggle">🌙</button>
+      </div>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </header>
+
+    <section class="hero dark-section" id="home">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Wafiq Marzuq</h1>
+          <p>
+            Mahasiswa Teknologi Informasi Semester 4<br />
+            Frontend & Backend Developer
+          </p>
+        </div>
+        <div class="hero-image">
+          <img src="img/profile.jpg" />
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        Saya adalah mahasiswa semester 4 Jurusan Teknologi Informasi di
+        Politeknik Negeri Jember. Saya mampu bekerja secara individu maupun
+        berkolaborasi dalam tim, memiliki semangat belajar yang tinggi, serta
+        selalu berusaha mengikuti perkembangan teknologi informasi.
+      </p>
+      <p>
+        Saat ini saya fokus mengembangkan kemampuan di bidang Frontend Web
+        Development, Backend Development, serta pengembangan aplikasi Android.
+        Beberapa skill yang saya miliki antara lain HTML, CSS, JavaScript, PHP,
+        MySQL, serta penggunaan tools seperti Android Studio, VS Code, XAMPP,
+        NetBeans, dan dasar Figma untuk desain antarmuka.
+      </p>
+    </section>
+
+    <section class="skills" id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">
+          <img src="img/skills/html.png" /><span>HTML</span>
+        </div>
+        <div class="skill">
+          <img src="img/skills/css.png" /><span>CSS</span>
+        </div>
+        <div class="skill">
+          <img src="img/skills/js.png" /><span>JavaScript</span>
+        </div>
+        <div class="skill">
+          <img src="img/skills/php.png" /><span>PHP</span>
+        </div>
+        <div class="skill">
+          <img src="img/skills/mysql.png" /><span>MySQL</span>
+        </div>
+        <div class="skill">
+          <img src="img/skills/vscode.png" /><span>VS Code</span>
+        </div>
+        <div class="skill">
+          <img src="img/skills/figma.png" /><span>Figma</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="certificates" id="certificates">
+      <h2 class="section-title">Certificate</h2>
+      <div class="certificate-grid">
+        <div
+          class="cert-card"
+          onclick="
+            openModal('Juara 3 Aplikasi Terbaik', 'img/certificates/juara3.png')
+          "
+        >
+          <img src="img/certificates/juara3.png" />
+          <p>Juara 3 Aplikasi Terbaik</p>
+        </div>
+        <div
+          class="cert-card"
+          onclick="openModal('Bootcamp UI/UX', 'img/certificates/uiux.png')"
+        >
+          <img src="img/certificates/uiux.png" />
+          <p>Panitia Bootcamp UI/UX</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="modal">
+      <div class="modal-content dark-section">
+        <span class="close" onclick="closeModal()">×</span>
+        <h3 id="modalTitle"></h3>
+        <img id="modalImg" />
+      </div>
+    </div>
+
+    <!-- CONTACT FIX -->
+    <section class="contact dark-section" id="contact">
+      <img src="img/profile.jpg" class="contact-photo" />
+      <p>Terima kasih sudah scroll</p>
+
+      <div class="contact-icons">
+        <a
+          class="contact-item"
+          href="https://github.com/WafiqMy"
+          target="_blank"
+        >
+          <img src="img/icons/github.png" />
+          <span>GitHub</span>
+        </a>
+
+        <a
+          class="contact-item"
+          href="https://instagram.com/wafiq_my"
+          target="_blank"
+        >
+          <img src="img/icons/instagram.png" />
+          <span>@wafiq_my</span>
+        </a>
+
+        <a class="contact-item" href="mailto:wafiqmarzuq@gmail.com">
+          <img src="img/icons/email.png" />
+          <span>wafiqmarzuq@gmail.com</span>
+        </a>
+
+        <a
+          class="contact-item"
+          href="https://wa.me/6281357021604"
+          target="_blank"
+        >
+          <img src="img/icons/whatsapp.png" />
+          <span>081357021604</span>
+        </a>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
