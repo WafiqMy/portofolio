@@ -8,6 +8,9 @@
   </head>
 
   <body>
+    <!-- Canvas untuk background animasi -->
+    <canvas id="bgCanvas"></canvas>
+
     <header class="navbar dark-section">
       <div class="nav-top">
         <div class="nav-left">
@@ -25,6 +28,13 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certificates">Certificate</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <a
+            href="https://drive.google.com/file/d/1aFcaBY08jX3P_IKjRtdzu606JheUF8JA/view?usp=drive_link"
+            target="_blank"
+            >CV</a
+          >
+        </li>
       </ul>
     </header>
 
@@ -52,8 +62,8 @@
         selalu berusaha mengikuti perkembangan teknologi informasi.
       </p>
       <p>
-        Saat ini saya fokus mengembangkan kemampuan di bidang Frontend Web
-        Development, Backend Development, serta pengembangan aplikasi Android.
+        Saat ini saya fokus mengembangkan kemampuan di bidang Frontend Web
+        Development, Backend Development, serta pengembangan aplikasi Android.
         Beberapa skill yang saya miliki antara lain HTML, CSS, JavaScript, PHP,
         MySQL, serta penggunaan tools seperti Android Studio, VS Code, XAMPP,
         NetBeans, dan dasar Figma untuk desain antarmuka.
@@ -106,6 +116,21 @@
           <img src="img/certificates/uiux.png" />
           <p>Panitia Bootcamp UI/UX</p>
         </div>
+        <div
+          class="cert-card"
+          onclick="openModal('Sertifikat HKI', 'img/certificates/hki.png')"
+        >
+          <img src="img/certificates/hki.png" />
+          <p>Sertifikat HKI</p>
+        </div>
+        <!-- Tambahan Sertifikat PKKMB -->
+        <div
+          class="cert-card"
+          onclick="openModal('Sertifikat PKKMB', 'img/certificates/pkkmb.png')"
+        >
+          <img src="img/certificates/pkkmb.png" />
+          <p>Sertifikat PKKMB</p>
+        </div>
       </div>
     </section>
 
@@ -117,7 +142,6 @@
       </div>
     </div>
 
-    <!-- CONTACT FIX -->
     <section class="contact dark-section" id="contact">
       <img src="img/profile.jpg" class="contact-photo" />
       <p>Terima kasih sudah scroll</p>
@@ -128,31 +152,31 @@
           href="https://github.com/WafiqMy"
           target="_blank"
         >
-          <img src="img/icons/github.png" />
-          <span>GitHub</span>
+          <img src="img/icons/github.png" /><span>GitHub</span>
         </a>
-
         <a
           class="contact-item"
           href="https://instagram.com/wafiq_my"
           target="_blank"
         >
-          <img src="img/icons/instagram.png" />
-          <span>@wafiq_my</span>
+          <img src="img/icons/instagram.png" /><span>@wafiq_my</span>
         </a>
-
         <a class="contact-item" href="mailto:wafiqmarzuq@gmail.com">
-          <img src="img/icons/email.png" />
-          <span>wafiqmarzuq@gmail.com</span>
+          <img src="img/icons/email.png" /><span>wafiqmarzuq@gmail.com</span>
         </a>
-
         <a
           class="contact-item"
           href="https://wa.me/6281357021604"
           target="_blank"
         >
-          <img src="img/icons/whatsapp.png" />
-          <span>081357021604</span>
+          <img src="img/icons/whatsapp.png" /><span>081357021604</span>
+        </a>
+        <a
+          class="contact-item"
+          href="https://drive.google.com/file/d/1aFcaBY08jX3P_IKjRtdzu606JheUF8JA/view?usp=drive_link"
+          target="_blank"
+        >
+          <img src="img/icons/cv.png" /><span>Download CV</span>
         </a>
       </div>
     </section>

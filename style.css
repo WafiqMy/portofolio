@@ -1,12 +1,10 @@
 :root {
-  --bg: #0f0f1a;
   --card: #16162a;
   --text: #ffffff;
   --accent: #a78bfa;
 }
 
 body.light {
-  --bg: #f3f4ff;
   --text: #111111;
 }
 
@@ -18,14 +16,24 @@ body.light {
 }
 
 body {
-  background: var(--bg);
+  position: relative;
+  min-height: 100vh;
   color: var(--text);
   transition: 0.3s;
+  overflow-x: hidden;
+}
+
+/* Canvas background */
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #0f0f1a;
 }
 
 /* ===================== DARK SECTION ===================== */
 .dark-section {
-  background: #0f0f1a;
+  background: rgba(15, 15, 26, 0.85);
   color: #ffffff !important;
 }
 .dark-section * {
@@ -41,45 +49,69 @@ body {
 
 /* ===================== NAVBAR ===================== */
 .navbar {
-  padding: 15px 25px;
-}
-
-.nav-top {
+  padding: 12px 25px;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
+/* Logo */
 .logo {
   color: var(--accent);
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
+  letter-spacing: 1px;
 }
 
+/* Menu */
 .nav-menu {
   display: flex;
   gap: 25px;
   list-style: none;
-  margin-top: 15px;
 }
 
 .nav-menu a {
   text-decoration: none;
   color: var(--text);
-  transition: transform 0.2s;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+}
+
+/* Efek underline animasi */
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
 }
 
 .nav-menu a:hover {
-  transform: scale(1.1);
+  color: var(--accent);
 }
 
-/* ===================== HAMBURGER ===================== */
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* Dark toggle */
+.dark-toggle {
+  margin-left: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Hamburger (mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -88,26 +120,22 @@ body {
   transition: transform 0.25s;
 }
 
-.hamburger:hover {
-  transform: scale(1.15);
-}
-
 .hamburger span {
   width: 22px;
   height: 3px;
   background: var(--accent);
+  transition: 0.3s;
 }
 
-.dark-toggle {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  transition: transform 0.25s;
+/* Hamburger jadi X saat aktif */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
-
-.dark-toggle:hover {
-  transform: scale(1.2);
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* ===================== HERO ===================== */
@@ -118,6 +146,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 .hero-image img {
@@ -163,7 +200,7 @@ body {
 }
 
 .skill:hover {
-  transform: scale(1.08); /* 🔥 ZOOM SKILL */
+  transform: scale(1.08);
 }
 
 .skill img {
@@ -172,7 +209,6 @@ body {
 }
 
 .skill span {
-  color: #ffffff;
   font-weight: 500;
 }
 
@@ -199,7 +235,7 @@ body {
 }
 
 .cert-card:hover {
-  transform: scale(1.05); /* 🔥 ZOOM CERTIFICATE */
+  transform: scale(1.05);
 }
 
 .cert-card img {
@@ -277,7 +313,7 @@ body {
 
 .contact-item:hover {
   width: 220px;
-  transform: scale(1.05); /* 🔥 ZOOM CONTACT */
+  transform: scale(1.05);
 }
 
 .contact-item img {
@@ -296,22 +332,57 @@ body {
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
+  /* Navbar */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: rgba(15, 15, 26, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+  }
+  .nav-menu.active {
+    display: flex;
+  }
   .hamburger {
     display: flex;
   }
 
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
-
+  /* Hero */
   .hero-inner {
     flex-direction: column-reverse;
     text-align: center;
     gap: 30px;
+    padding: 60px 20px;
+  }
+  .hero-image img {
+    width: 140px;
+  }
+  .hero-text h1 {
+    font-size: 26px;
+  }
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  /* Skills & Certificates */
+  .skills-grid,
+  .certificate-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Contact */
+  .contact-icons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .contact-photo {
+    width: 70px;
   }
 }
